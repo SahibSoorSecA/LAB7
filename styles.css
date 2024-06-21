@@ -1,9 +1,13 @@
+*{background-image: url(paper.jpg);}
 h1 { display: flex;
     justify-content: center;
-    background-color: aliceblue;
     font-size: 500%;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
-h2 {display: flex;
+.subheadings
+    {display: flex;
     justify-content: space-between;
     padding: 10%;
-    font-size: 200%;}
+    font-size: 300%;}
+
+.cards {display: flex;
+    justify-content: space-evenly;}
