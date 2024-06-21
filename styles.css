@@ -3,11 +3,13 @@ h1 { display: flex;
     justify-content: center;
     font-size: 500%;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
-.subheadings
-    {display: flex;
+
+  
+    
+.cards {display: flex;
     justify-content: space-between;
     padding: 10%;
     font-size: 300%;}
 
-.cards {display: flex;
-    justify-content: space-evenly;}
+.card1 {display: flex;
+        flex-direction: column;}

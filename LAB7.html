@@ -5,25 +5,44 @@
     </head>
     <body>
         <h1>TO DO LIST</h1>
-        <div class="subheadings">
-            <label for="Taskentrytitle">Lets make a list to organize your tasks</label>
-            <label for="Tasklisttitle">Here's Your Task List</label>
-        </div>
+
         <div class="cards">            
             
-            <div class="card1">
-                <input type="text" id="taskbox" placeholder="Enter your first task here">
+            <div class="card1">            
+                <label for="taskEntry">Lets make a list to organize your tasks</label>
+                <input type="text" id="taskBox" placeholder="Enter your first task here">
                 <button id="myBtn">Submit</button>
                 
             </div>
 
             <div class="card2">
-                <ul>
+                <label for="taskList">Here's Your Task List</label>
+                <ul id="taskList">
 
                 </ul>
-            </div>
+            </div>       
+                     
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            const myBtn = document.getElementById('myBtn');    
+            const taskBox = document.getElementById('taskBox');
+            const taskList = document.getElementById('taskList');
+            
+            myBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                const taskText = taskBox.value.trim();
+                if (taskText !== '') {
+                const li = document.createElement('li');
+                li.textContent = taskText;
+                taskList.appendChild(li);
+                taskBox.value = '';
+                }
+            });
+            }
+            );
+        </script>
 
-        
+        <div></div>
     </body>
 </html>
