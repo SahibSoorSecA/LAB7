@@ -1,78 +1,86 @@
 <html>
-
-<head>
+  <head>
     <title>LAB 7</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
-    <h1>TO DO LIST</h1>
+  <body>
+    <h1>To Do List</h1>
 
     <div class="cards">
+      <div class="card1">
+        <label for="taskEntry">Lets make a list to organize your tasks</label>
+        <input
+          type="text"
+          id="taskBox"
+          placeholder="Enter your first task here"
+        />
+        <button id="myBtn">Submit</button>
+      </div>
 
-        <div class="card1">
-            <label for="taskEntry">Lets make a list to organize your tasks</label>
-            <input type="text" id="taskBox" placeholder="Enter your first task here">
-            <button id="myBtn">Submit</button>
-
-        </div>
-
-        <div class="card2">
-            <label for="taskList">Here's Your Task List</label>
-            <ul id="taskList">
-
-            </ul>
-        </div>
-
+      <div class="card2">
+        <label for="taskList">Here's Your Task List</label>
+        <ul id="taskList"></ul>
+      </div>
     </div>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const myBtn = document.getElementById('myBtn');
-            const taskBox = document.getElementById('taskBox');
-            const taskList = document.getElementById('taskList');
+      document.addEventListener("DOMContentLoaded", () => {
+        const myBtn = document.getElementById("myBtn");
+        const taskBox = document.getElementById("taskBox");
+        const taskList = document.getElementById("taskList");
 
-            myBtn.addEventListener('click', function (event) {
-                event.preventDefault();
-                const taskText = taskBox.value.trim();
-                if (taskText !== '') {
-                    const li = document.createElement('li');
-                    li.textContent = taskText;
-                    //--------------------------------------
-                    //    taskList.appendChild(li);
-                    taskBox.value = '';
-                    //---------------CHECKBOX-----------------------
-                    const checkbox = document.createElement('input');
-                    checkbox.type = 'checkbox';
-                    li.appendChild(checkbox);
-                    //---------------DELETE-BUTTON-------------------
-                    const deleteBtn = document.createElement('button');
-                    deleteBtn.textContent = 'Delete';
-                    li.appendChild(deleteBtn);
+        taskBox.addEventListener("keypress", (event) => {
+          if (event.key === "Enter") {
+            event.preventDefault();
+            myBtn.click();
+          }
+        });
 
-                    //      taskList.appendChild(li);
-                    taskBox.value = '';
-                    //----------------FUNCTIONS-----------------------
-                    checkbox.addEventListener('change', function () {
-                        if (checkbox.checked) {
-                            li.style.textDecoration = 'line-through';
+        myBtn.addEventListener("click", (event) => {
+          event.preventDefault();
+          const taskText = taskBox.value.trim();
+          if (taskText !== "") {
+            const li = document.createElement("li");
+            li.textContent = taskText;
+            //--------------------------------------
+            taskList.appendChild(li);
+            // taskBox.value = '';
+            //---------------CHECKBOX-----------------------
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            li.appendChild(checkbox);
+            //---------------DELETE-BUTTON-------------------
+            const deleteBtn = document.createElement("button");
+            deleteBtn.id = "deleteBtn";
+            deleteBtn.textContent = "Delete";
+            li.appendChild(deleteBtn);
 
-                        } else {
-                            li.style.textDecoration = 'none';
-                        }
-
-                        deleteBtn.addEventListener('click', function () {
-                            taskList.removeChild(li);
-                        });
-                        
-                    });
-
-                }
+            taskList.appendChild(li);
+            // taskBox.value = '';
+            //----------------FUNCTIONS-----------------------
+            checkbox.addEventListener("change", () => {
+              if (checkbox.checked) {
+                li.style.textDecoration = "line-through";
+              } else {
+                li.style.textDecoration = "none";
+              }
             });
-        }
-        );
+
+            deleteBtn.addEventListener("click", () => {
+              taskList.removeChild(li);
+            });
+          }
+        });
+      });
     </script>
 
     <div></div>
-</body>
-
+  </body>
 </html>

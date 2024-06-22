@@ -1,8 +1,13 @@
-*{background-image: url(paper.jpg);}
+/* *{background-image: url(paper.jpg);} */
+
+body {
+    background-image: url(paper.jpg);
+}
 h1 { display: flex;
     justify-content: center;
     font-size: 500%;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;}
+    font-family: "Playwrite FR Moderne", cursive;
+}
 
   
 
@@ -12,5 +17,43 @@ h1 { display: flex;
     font-size: 300%;}
 
 .card1 {display: flex;
-        flex-direction: column;}
+        flex-direction: column;
+        align-items: center;}
+        
 
+
+.card2 ul {
+    font-size: 50%;
+
+}
+#myBtn {
+    background-color: green;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: monospace;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 50%;
+    align-content: center;
+}
+
+#deleteBtn {
+    background-color: red;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: monospace;
+    color: white;
+    padding: 5px;
+    margin-left: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.card1 label {padding: 20px;}
+.card1 input {padding: 10px;
+                width: 100%;}
