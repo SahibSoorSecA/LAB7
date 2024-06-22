@@ -1,77 +1,78 @@
 <html>
-    <head>
-        <title>LAB 7</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <h1>TO DO LIST</h1>
 
-        <div class="cards">            
-            
-            <div class="card1">            
-                <label for="taskEntry">Lets make a list to organize your tasks</label>
-                <input type="text" id="taskBox" placeholder="Enter your first task here">
-                <button id="myBtn">Submit</button>
-                
-            </div>
+<head>
+    <title>LAB 7</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-            <div class="card2">
-                <label for="taskList">Here's Your Task List</label>
-                <ul id="taskList">
+<body>
+    <h1>TO DO LIST</h1>
 
-                </ul>
-            </div>       
-                     
+    <div class="cards">
+
+        <div class="card1">
+            <label for="taskEntry">Lets make a list to organize your tasks</label>
+            <input type="text" id="taskBox" placeholder="Enter your first task here">
+            <button id="myBtn">Submit</button>
+
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            const myBtn = document.getElementById('myBtn');    
+
+        <div class="card2">
+            <label for="taskList">Here's Your Task List</label>
+            <ul id="taskList">
+
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const myBtn = document.getElementById('myBtn');
             const taskBox = document.getElementById('taskBox');
             const taskList = document.getElementById('taskList');
-            
-            myBtn.addEventListener('click', function(event) {
+
+            myBtn.addEventListener('click', function (event) {
                 event.preventDefault();
                 const taskText = taskBox.value.trim();
                 if (taskText !== '') {
-                const li = document.createElement('li');
-                li.textContent = taskText;
-                //--------------------------------------
-                taskList.appendChild(li);
-                taskBox.value = '';
-                //---------------CHECKBOX-----------------------
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                li.appendChild(checkbox);
-                //---------------DELETE-BUTTON-------------------
-                const deleteBtn = document.createElement('button');
-                deleteBtn.textContent = 'Delete';
-                li.appendChild(deleteBtn);
+                    const li = document.createElement('li');
+                    li.textContent = taskText;
+                    //--------------------------------------
+                    //    taskList.appendChild(li);
+                    taskBox.value = '';
+                    //---------------CHECKBOX-----------------------
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    li.appendChild(checkbox);
+                    //---------------DELETE-BUTTON-------------------
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.textContent = 'Delete';
+                    li.appendChild(deleteBtn);
 
-                taskList.appendChild(li);
-                taskBox.value = '';
-                //----------------FUNCTIONS-----------------------
-                checkbox.addEventListener('change', function() {
-                    if (checkbox.checked) {
-                        li.style.textDecoration = 'line-through';
+                    //      taskList.appendChild(li);
+                    taskBox.value = '';
+                    //----------------FUNCTIONS-----------------------
+                    checkbox.addEventListener('change', function () {
+                        if (checkbox.checked) {
+                            li.style.textDecoration = 'line-through';
+
+                        } else {
+                            li.style.textDecoration = 'none';
+                        }
+
+                        deleteBtn.addEventListener('click', function () {
+                            taskList.removeChild(li);
+                        });
                         
-                    } else { 
-                        li.style.textDecoration = 'none';
-                    }
-                
-                deleteBtn.addEventListener('click', function() {
-                    taskList.removeChild(li);
-                }
-                    
-            
-            )    
-                });
+                    });
 
                 }
             });
-            }
-            );
-        </script>
+        }
+        );
+    </script>
 
-        <div></div>
-    </body>
+    <div></div>
+</body>
+
 </html>
